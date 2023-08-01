@@ -24,7 +24,6 @@ jobs:
         with:
           files: |
             build/.gnosis
-            build/.prater
             build/.mainnet
             build/.prater
             build/.lukso
