@@ -22,14 +22,27 @@ function generateEnvFiles(json) {
         }
       }
     }
-    fs.writeFileSync(path.join(__dirname, "build", `.${network}`), content);
+
+    const buildDir = path.join(__dirname, "build");
+    // Check if the build directory exists, if not, create it
+    if (!fs.existsSync(buildDir)) {
+      fs.mkdirSync(buildDir);
+    }
+
+    fs.writeFileSync(path.join(buildDir, `.${network}`), content);
   }
 }
 
 generateEnvFiles(json);
 
+const buildDir = path.join(__dirname, "build");
+// Check if the build directory exists, if not, create it
+if (!fs.existsSync(buildDir)) {
+  fs.mkdirSync(buildDir);
+}
+
 // Generate JS module
 fs.writeFileSync(
-  path.join(__dirname, "build/stakerConfigs.js"),
+  path.join(buildDir, "stakerConfigs.js"),
   `export default ${JSON.stringify(json, null, 2)};`
 );
