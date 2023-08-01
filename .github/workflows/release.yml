@@ -6,11 +6,17 @@ on:
       - "*"
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: npm run release
 
       - name: Create Release
         id: create_release
@@ -22,3 +28,18 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
+
+      - name: Upload Build Assets
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-assets
+          path: |
+            build/*
+            tekuCerts/*
+
+      - name: Upload Release Assets
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: "./build/*,./tekuCerts/*"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ github.ref }}
