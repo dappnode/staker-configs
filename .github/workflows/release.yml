@@ -27,5 +27,6 @@ jobs:
             build/.prater
             build/.mainnet
             build/.prater
+            build/.lukso
             build/.stakerConfigs.js
             tekuCerts/*
