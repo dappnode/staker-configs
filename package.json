@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "release": "npm version patch && git push origin --tags"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
