@@ -28,7 +28,7 @@ jobs:
             build/prater.env
             build/lukso.env
             build/stakerConfigs.js
-            tekuCerts/teku_client_keystore_gnosis
-            tekuCerts/teku_client_keystore_mainnet
-            tekuCerts/teku_client_keystore_prater
+            tekuCerts/teku_client_keystore_gnosis.p12
+            tekuCerts/teku_client_keystore_mainnet.p12
+            tekuCerts/teku_client_keystore_prater.p12
             tekuCerts/teku_keystore_password.txt
