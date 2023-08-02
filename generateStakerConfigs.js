@@ -29,7 +29,7 @@ function generateEnvFiles(json) {
       fs.mkdirSync(buildDir);
     }
 
-    fs.writeFileSync(path.join(buildDir, `.${network}`), content);
+    fs.writeFileSync(path.join(buildDir, `${network}.env`), content);
   }
 }
 

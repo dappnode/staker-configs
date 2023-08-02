@@ -23,9 +23,12 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/.gnosis
-            build/.mainnet
-            build/.prater
-            build/.lukso
-            build/.stakerConfigs.js
-            tekuCerts/*
+            build/gnosis
+            build/mainnet
+            build/prater
+            build/lukso
+            build/stakerConfigs.js
+            tekuCerts/teku_client_keystore_gnosis
+            tekuCerts/teku_client_keystore_mainnet
+            tekuCerts/teku_client_keystore_prater
+            tekuCerts/teku_keystore_password.txt
